@@ -1,0 +1,249 @@
+Q1. Develop a C++ function that takes a string as an argument and returns whether it contains only digits using if-else statements.
+
+Ans.#include <bits/stdc++.h>
+using namespace std;
+
+bool checkForNum(string s)
+{
+    int count = 0;
+    // Loop to check each charecter of srting
+    for (int i = 0; i < s.length(); i++)
+    {
+        if (int(s[i]) >= 48 && int(s[i]) <= 57)
+        {
+            count++;
+        }
+    }
+
+    if (count == s.length())
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+int main()
+{
+    string anyCh;
+    cout << "Enter Anything : ";
+    cin >> anyCh;
+
+    bool isContainNumOnly = checkForNum(anyCh);
+
+    if (isContainNumOnly)
+    {
+        cout << "String Contain Only Digits";
+    }
+    else
+    {
+        cout << "Any String";
+    }
+
+    return 0;
+}
+
+Q2. Write a C++ function that takes a person's hourly wage and hours worked as arguments and returns their total pay, including overtime pay
+     for hours worked over 40, using if-else statements.
+
+Ans. #include <bits/stdc++.h>
+using namespace std;
+
+float getPay(float wage, float work)
+{
+    float regularEarning;
+    float overtimeRate = 1.5 * wage;
+
+    if (work > 40)
+    {
+        int extraHour = work - 40;
+        regularEarning = wage * 40;
+        float overtimeEarning = overtimeRate * extraHour;
+        float payment = regularEarning + overtimeEarning;
+        return payment;
+    }
+    else
+    {
+        regularEarning = wage * work;
+        return regularEarning;
+    }
+}
+
+int main()
+{
+    float wage, work;
+    cout << "Enter The Hourly Wage: ";
+    cin >> wage;
+    cout << "Enter The Hour Worked: ";
+    cin >> work;
+
+    float totalPay = getPay(wage, work);
+
+    cout << "You payment is " << totalPay;
+    return 0;
+}
+
+Q3. Develop a C++ function that takes a character as an argument and returns its ASCII value category (digit, uppercase letter, lowercase
+     letter, special character) using if-else statements.
+
+Ans. #include <bits/stdc++.h>
+using namespace std;
+
+string getAsciiValueCategory(char ch)
+{
+    int asciiValue = int(ch);
+
+    if (asciiValue >= 48 && asciiValue <= 57)
+    {
+        return "Digit";
+    }
+    else if (asciiValue >= 65 && asciiValue <= 90)
+    {
+        return "Uppercase Letter";
+    }
+    else if (asciiValue >= 97 && asciiValue <= 122)
+    {
+        return "Lowercase Letter";
+    }
+    else
+    {
+        return "Special Charecter";
+    }
+}
+
+int main()
+{
+    char any_Ch;
+    cout << "Enter Any Charecter : ";
+    cin >> any_Ch;
+
+    string asciiValueCategory = getAsciiValueCategory(any_Ch);
+
+    cout << any_Ch << " is a " << asciiValueCategory;
+
+    return 0;
+}
+
+Q4.  Implement a C++ function that takes the number of hours a car is parked as an argument and returns the parking fee based on hourly
+      rates using if-else statements.I
+
+Ans.#include <bits/stdc++.h>
+using namespace std;
+
+float getFees(float h)
+{
+    float fees = 5.50;
+    return fees * h;
+}
+
+int main()
+{
+   float hour;
+    cout << "Enter Number of Hours: ";
+    cin >> hour;
+
+    float parkingFees = getFees(hour);
+
+    cout << "Parking fees is " << parkingFees;
+    return 0;
+}
+
+Q.5 Implement a C++ function that takes a person's income as an argument and returns their tax bracket using if-else statements.
+
+Ans. #include <iostream>
+using namespace std;
+
+float getTax(float i)
+{
+    float tax;
+    if (i < 3.00)
+    {
+        tax = 0.00;
+    }
+    else if (i > 3.00 && i <= 6.00)
+    {
+        tax = 5.00;
+    }
+    else if (i > 6.00 && i <= 9.00)
+    {
+        tax = 10.00;
+    }
+    else if (i > 9.00 && i <= 12.00)
+    {
+        tax = 15.00;
+    }
+    else if (i > 12.00 && i < 15.00)
+    {
+        tax = 20.00;
+    }
+    else if (i > 15 && i <= 30.00)
+    {
+        tax = 25.00;
+    }
+    else
+    {
+        tax = 30.00;
+    }
+
+    return tax;
+}
+
+int main()
+{
+    float income;
+    cout << "Enter Your Income in lakhs: ";
+    cin >> income;
+
+    float tax = getTax(income);
+    cout << "You are to pay " << tax << "% of Your Income.";
+    return 0;
+}
+
+#include <bits/stdc++.h>
+using namespace std;
+
+bool checkForPalindrome(int n)
+{
+    int reversedNum = 0;
+    for (int i = n; i > 0; i /= 10)
+    {
+        int lastDigit = i % 10;
+        reversedNum = reversedNum * 10 + lastDigit;
+    }
+
+    if (reversedNum == n)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+int main()
+{
+    /*
+        Write a C++ function that takes a number as argument and return wheather number is palindrone or not using if-else statement
+    */
+
+    int num;
+    cout << "Enter Any Number: ";
+    cin >> num;
+
+    bool isNumPalindrome = checkForPalindrome(num);
+
+    if (isNumPalindrome)
+    {
+        cout << num << " is a Palindrone Number.";
+    }
+    else
+    {
+        cout << num << " is not a Palindrome Number";
+    }
+
+    return 0;
+}
+
